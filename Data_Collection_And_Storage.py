@@ -458,7 +458,7 @@ def main():
         state2DatabaseCountyCount = len(cur.fetchall())
         state2ActualCountyCount = len(get_countyNames(state2))
         #When all three tables are completed for state 2, the csv file will be created and written into.
-        if (state2DatabaseCountyCount == len(get_countyNames(state2))):
+        if (state2DatabaseCountyCount == state2ActualCountyCount):
             csvFile = f'{state2}_covidCalculatedData.csv'
             write_calculated_data_to_file(csvFile,state2, cur, conn)
             print('Done filling tables and writing files. Time to run visualization.py')
